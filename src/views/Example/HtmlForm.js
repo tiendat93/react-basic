@@ -5,7 +5,20 @@ class HtmlForm extends React.Component {
 
     state = {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        arrJobs: [
+            {
+                "name": "John",
+                "age": 30,
+                "car": "Hyundai"
+            },
+
+            {
+                "name": "Nhat",
+                "age": 20,
+                "car": "Vinfast"
+            }
+        ]
     }
 
     hanldeChangeFirsName = (event) => {
@@ -36,9 +49,7 @@ class HtmlForm extends React.Component {
                     <input onChange={(event) => this.hanldeChangeLastName(event)} type="text" value={this.state.lastName} /><br /><br />
                     <input type="submit" onClick={(event) => this.hanldeSubmit(event)} value="Submit" />
                 </form>
-                <ChildComponent name={'1'} />
-                <ChildComponent name={'2'} />
-                <ChildComponent name={'3'} />
+                <ChildComponent name={'3'} arrJobs={this.state.arrJobs} />
             </React.Fragment >
         )
     }
