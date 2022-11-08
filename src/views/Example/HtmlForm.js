@@ -1,12 +1,44 @@
 import React from "react";
+import ChildComponent from "./ChildComponent";
 
 class HtmlForm extends React.Component {
 
+    state = {
+        firstName: '',
+        lastName: ''
+    }
+
+    hanldeChangeFirsName = (event) => {
+        this.setState({
+            firstName: event.target.value
+        })
+    }
+
+    hanldeChangeLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+
+    hanldeSubmit = (event) => {
+        event.preventDefault() // Ham khong tra lai website - Ngan chan hanh dong default cua viec Submit
+        console.log('>> Data input: ', this.state)
+    }
 
     render() {
+        //console.log('>> Cal render: ', this.state)
         return (
             < React.Fragment >
-
+                <form action="/action_page.php">
+                    <label htmlFor="fname">First name:</label><br />
+                    <input onChange={(event) => this.hanldeChangeFirsName(event)} type="text" value={this.state.firstName} /><br />
+                    <label htmlFor="lname">Last name:</label><br />
+                    <input onChange={(event) => this.hanldeChangeLastName(event)} type="text" value={this.state.lastName} /><br /><br />
+                    <input type="submit" onClick={(event) => this.hanldeSubmit(event)} value="Submit" />
+                </form>
+                <ChildComponent name={'1'} />
+                <ChildComponent name={'2'} />
+                <ChildComponent name={'3'} />
             </React.Fragment >
         )
     }
