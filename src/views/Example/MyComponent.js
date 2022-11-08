@@ -4,14 +4,40 @@ class MyComponent extends React.Component {
 
     // JSX => Return Block
 
+    state = {
+        name: 'Dat',
+        channel: 'Tesk TV'
+
+    }
+
+    hanldeOnChangeName = (event) => {
+        // this.state.name = event.target.value;  bad code
+        this.setState({  // phai su dung ham setState
+            name: event.target.value,
+            channel: "TEKS TV"
+        })
+    }
+
+    handleClickButton = () => {
+        alert("Click me")
+    }
+
     render() {
-        let name = 'dathee'
+        //let name = 'dathee'
+        console.log('>> Cal render: ', this.state)
         return (
-            <React.Fragment>
+            < React.Fragment >
                 <div>
-                    Hello Component, my name is {name}
+                    <input value={this.state.name} type="text" onChange={(event) => this.hanldeOnChangeName(event)} />
+                    My name is {this.state['name']} <br />
+                    My channel is {this.state['channel']}
                 </div>
-            </React.Fragment>
+
+                <div className="third">
+                    <button onClick={() => { this.handleClickButton() }}>Click me</button>
+                </div>
+
+            </React.Fragment >
         )
     }
 }
