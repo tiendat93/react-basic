@@ -28,3 +28,4 @@ export default ChildComponent;
 
 // Props: Giải quyết vấn đề gì? Truyền data cho thằng react4
 //State:
+//test edit
